@@ -2,6 +2,46 @@
 #include <iostream>
 #include <time.h>
 
+vector :: vector()
+{
+	array = new int[maxSize];
+}
+vector::vector(int size)
+{
+	this->size = size;
+	array = new int[size];
+}
+
+vector::vector(const vector& vec)
+{
+	this->size = vec.size;
+
+	this->array = new int[this->size];
+
+	for (auto i = 0; i < this->size; i++)
+	{
+		this->array[i] = vec.array[i];
+	}
+}
+
+vector::vector(vector&& other)
+{
+	this->size = other.size;
+	this->array = new int[this->size];
+
+	for (int i = 0; i < this->size; i++)
+	{
+		this->array[i] = other.array[i];
+		other.array[i] = 0;
+	}
+}
+
+vector :: ~vector()
+{
+	cout << "destructor launch" << endl;
+	delete[] array;
+	array = nullptr;
+}
 void vector::fillVector()
 {
 	cout << "Enter elements of vector" << endl;

@@ -10,39 +10,11 @@ class vector
 
 public:
 
-	vector()
-	{
-		array = new int[maxSize];
-	}
-	vector(int size)
-	{
-		this->size = size;
-		array = new int[size];
-	}
+	vector();
+	vector(int size);
+	vector(const vector& vec);
+	vector(vector&& other);
 
-	vector(const vector& vec)
-	{
-		this->size = vec.size;
-
-		this->array = new int[this->size];
-
-		for (auto i = 0; i < this->size; i++)
-		{
-			this->array[i] = vec.array[i];
-		}
-	}
-
-	vector(vector&& other)
-	{
-		this->size = other.size;
-		this->array = new int[this->size];
-
-		for (int i = 0; i < this->size; i++)
-		{
-			this->array[i] = other.array[i];
-			other.array[i] = 0;
-		}
-	}
 
 	void setVectorSize();
 	void fillVector();
@@ -56,11 +28,7 @@ public:
 	void actionsWithOtherVector(vector& vec, vector& FinalVec);
 	void Func(vector& vec, vector& FinalVec);
 
-	~vector()
-	{
-		cout << "destr" << endl;
-		delete[] array;
-		array = nullptr;
-	}
+	~vector();
+
 
 };
