@@ -2,17 +2,108 @@
 #include <iostream>
 #include <time.h>
 
-vector :: vector()
+Vector Vector :: operator + (int scalar)
+{
+	
+	for (int i = 0; i < this->size; i++)
+	{
+		array[i] += scalar;
+	}
+		return *this;
+}
+Vector Vector :: operator - (int scalar)
+{
+
+	for (int i = 0; i < this->size; i++)
+	{
+		array[i] -= scalar;
+	}
+	return *this;
+}
+Vector Vector :: operator * (int scalar)
+{
+
+	for (int i = 0; i < this->size; i++)
+	{
+		array[i] *= scalar;
+	}
+	return *this;
+}
+Vector Vector :: operator / (int scalar)
+{
+
+	for (int i = 0; i < this->size; i++)
+	{
+		array[i] /= scalar;
+	}
+	return *this;
+}
+
+Vector Vector :: operator + ( Vector& vector)
+{
+	for (int i = 0; i < this->size; i++)
+	{
+		array[i] += vector.array[i];
+	}
+	return *this;
+}
+Vector Vector :: operator - ()
+{
+	for (int i = 0; i < this->size; i++)
+	{
+		array[i] *= -1;
+	}
+	return *this;
+}
+Vector Vector :: operator - (const Vector& vector)
+{
+	for (int i = 0; i < this->size; i++)
+	{
+		array[i] -= vector.array[i];
+	}
+	return *this;
+}
+Vector Vector :: operator * (const Vector& vector)
+{
+	for (int i = 0; i < this->size; i++)
+	{
+		array[i] *= vector.array[i];
+	}
+	return *this;
+}
+Vector Vector :: operator / (const Vector& vector)
+{
+	for (int i = 0; i < this->size; i++)
+	{
+		array[i] *= vector.array[i];
+	}
+	return *this;
+}
+int Vector :: operator [] (int index)
+{
+	return this->array[index];
+}
+int Vector :: operator + (const Vector& vector)
+{
+	int sum = 0;
+	for (int i = 0; i < this->size; i++)
+	{
+		sum += array[i] * vector.array[i];
+	}
+	return sum;
+}
+
+Vector :: Vector()
 {
 	array = new int[maxSize];
 }
-vector::vector(int size)
+Vector::Vector(int size)
 {
 	this->size = size;
 	array = new int[size];
 }
 
-vector::vector(const vector& vec)
+Vector::Vector(const Vector& vec)
 {
 	this->size = vec.size;
 
@@ -24,7 +115,7 @@ vector::vector(const vector& vec)
 	}
 }
 
-vector::vector(vector&& other)
+Vector::Vector(Vector&& other)
 {
 	this->size = other.size;
 	this->array = new int[this->size];
@@ -36,66 +127,66 @@ vector::vector(vector&& other)
 	}
 }
 
-vector :: ~vector()
+Vector :: ~Vector()
 {
-	cout << "destructor launch" << endl;
 	delete[] array;
 	array = nullptr;
 }
-void vector::fillVector()
+void Vector::fillVector()
 {
-	cout << "Enter elements of vector" << endl;
 	for (int i = 0; i < size; i++)
 	{
 		cin >> array[i];
 	}
 }
-void vector::fillVectorRand()
+void Vector::fillVectorRand()
 {
 	for (int i = 0; i < size; i++)
 	{
 		array[i] = rand() % 5 + 1;
 	}
 }
-void vector::outVector()
+void Vector::outVector()
 {
-	cout << "Elements of vector:" << endl;
 	for (int i = 0; i < size; i++)
 	{
 		cout << array[i] << " ";
 	}
-	cout << endl;
 }
-void vector::setVectorSize()
+void Vector::setVectorSize(int size)
 {
-	cout << "Enter size of vector" << endl;
-	cin >> this->size;
+	this->size = size;
 }
-int vector::getVectorSize()
+int Vector::getVectorSize()
 {
-	cout << "Vector size = ";
 	return this->size;
 }
-int vector::getVectorElement(int index)
+int Vector::getVectorElement(int index)
 {
 	if (index > size)
 	{
-		cout << "The index is beyond the size of the vector" << endl;
 		return 0;
 	}
-	cout << "Element of vector under index: " << index + 1 << " = ";
 	return this->array[index];
 }
-void vector::replaceVectorElement(int index, int temp)
+void Vector:: setVectorElement(int index, int data)
 {
 	if (index > size)
 	{
-		cout << "The index is beyond the size of the vector" << endl;
+		return;
+	}
+
+	this->array[index] = data;
+}
+void Vector::replaceVectorElement(int index, int temp)
+{
+	if (index > size)
+	{
 		return;
 	}
 	array[index] = temp;
 }
-void vector::actionsWithScalar(int scalar)
+void Vector::actionsWithScalar(int scalar)
 {
 	int choice = 0;
 	cout << " Choose operation: \n 1 - * \n 2 - : \n 3 - + \n 4 - -" << endl;
@@ -132,7 +223,7 @@ void vector::actionsWithScalar(int scalar)
 		return;
 	}
 }
-void vector::findingScalarLenght()
+void Vector::findingScalarLenght()
 {
 	double lenght, sum = 0;
 	for (int i = 0; i < size; i++)
@@ -142,7 +233,7 @@ void vector::findingScalarLenght()
 	lenght = sqrt(sum);
 	cout << "Lenght of vector = " << lenght << endl;
 }
-void vector::actionsWithOtherVector(vector& vec, vector& FinalVec)
+void Vector::actionsWithOtherVector(Vector& vec, Vector& FinalVec)
 {
 	if (size == vec.size)
 	{
@@ -181,28 +272,5 @@ void vector::actionsWithOtherVector(vector& vec, vector& FinalVec)
 			cout << "Incorrect choice, dumb";
 			return;
 		}
-	}
-}
-void vector::Func(vector& vec, vector& FinalVec)
-{
-	FinalVec.size = size;
-	int maxVec1 = INT_MIN;
-	int maxVec2 = INT_MIN;
-
-	for (int i = 0; i < size; i++)
-	{
-		if (array[i] > maxVec1)
-		{
-			maxVec1 = array[i];
-		}
-		if (vec.array[i] > maxVec2)
-		{
-			maxVec2 = vec.array[i];
-		}
-	}
-
-	for (int i = 0; i < size; i++)
-	{
-		FinalVec.array[i] = array[i] * maxVec1 + vec.array[i] * maxVec2;
 	}
 }
