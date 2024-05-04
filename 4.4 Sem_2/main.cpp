@@ -72,23 +72,28 @@ int main()
 
 	vec1.setVectorSize(3);
 	cout << endl <<  "Enter elements of vector" << endl;
-	vec1.fillVector();
+	vec1.operator>>(cin);
+	/*vec1.fillVector();*/
 	cout << endl << "Elements of vector:" << endl;
-	vec1.outVector();
+	//vec1.outVector();
+	vec1.operator<<(cout);
 
-	Vector vec3 = -vec1;
-	cout << endl << "Elements of vector:" << endl;
-	vec3.outVector();
-	cout << endl << "Element = " << vec1[1];
-	cout << endl << "Elements of vector:" << endl;
-	vec1.outVector();
+	//Vector vec3 = -vec1;
+	//cout << endl << "Elements of vector:" << endl;
+	///*vec3.outVector();*/
+	//cout << vec3;
+	//cout << endl << "Element = " << vec1[1];
+	//cout << endl << "Elements of vector:" << endl;
+	//vec1.outVector();
 
-	Vector vec2;
-	vec2.setVectorSize(3);
-	cout << endl << "Enter elements of vector" << endl;
-	vec2.fillVector();
-	cout << endl << "Elements of vector:" << endl;
-	vec2.outVector();
+	//Vector vec2;
+	//vec2.setVectorSize(3);
+	//cout << endl << "Enter elements of vector" << endl;
+	////vec2.fillVector();
+	//cin >> vec2;
+	//cout << endl << "Elements of vector:" << endl;
+	//cout << vec2;
+	//vec2.outVector();
 
 	//vec1 - vec2;
 	//cout << endl << "Elements of vector:" << endl;
@@ -98,7 +103,7 @@ int main()
 
 
 
-	cout << endl << "Elements of vector:" << endl;
+	/*cout << endl << "Elements of vector:" << endl;*/
 	//vec2.outVector();
 	// 
 	//Func(vec1, vec2, vec3);
@@ -204,3 +209,20 @@ Vector  operator - (const Vector& vector1)
 	}
 	return vector1;
 }
+
+//ostream& operator << (ostream& str, Vector& r)
+//{
+//	for (int i = 0; i < r.size; i++)
+//	{
+//		str << r.array[i] << " ";
+//	}
+//	return str;
+//}
+//istream& operator >> (istream& str, Vector& r)
+//{
+//	for (int i = 0; i < r.size; i++)
+//	{
+//		cin >> r.array[i];
+//	}
+//	return str;
+//}
