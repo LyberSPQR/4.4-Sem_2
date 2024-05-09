@@ -15,8 +15,8 @@ public:
 	Vector(const Vector& vec);
 	Vector(Vector&& other);
 
-	//friend istream& operator >> (istream& str, Vector& r);
-	//friend ostream& operator << (ostream& str, Vector& r);
+	friend istream& operator >> (istream& str, Vector& r);
+	friend ostream& operator << (ostream& str, Vector& r);
 
 	Vector operator + (int scalar);
 	int operator + (const Vector& vector);
