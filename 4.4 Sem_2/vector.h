@@ -15,35 +15,35 @@ public:
 	Vector(const Vector& vec);
 	Vector(Vector&& other);
 
-	friend istream& operator >> (istream& str, Vector& r);
-	friend ostream& operator << (ostream& str, Vector& r);
+	//friend istream& operator >> (istream& str, Vector& r);
+	//friend ostream& operator << (ostream& str, Vector& r);
 
-	Vector operator + (int scalar);
-	int operator + (const Vector& vector);
-	Vector operator + ( Vector& vector);
-	Vector operator - (int scalar);
-	Vector operator * (int scalar);
-	Vector operator / (int scalar);
-	Vector operator - ();
-	Vector operator - (const Vector& vector);
-	Vector operator * (const Vector& vector);
-	Vector operator / (const Vector& vector);
+	//Vector operator + (int scalar);
+	//int operator + (const Vector& vector);
+	//Vector operator + ( Vector& vector);
+	//Vector operator - (int scalar);
+	//Vector operator * (int scalar);
+	//Vector operator / (int scalar);
+	//Vector operator - ();
+	//Vector operator - (const Vector& vector);
+	//Vector operator * (const Vector& vector);
+	//Vector operator / (const Vector& vector);
 
-	ostream& operator << (ostream& str);
-	istream& operator >> (istream& str);
+	//ostream& operator << (ostream& str);
+	//istream& operator >> (istream& str);
 
 	int operator [] (int index);
 
-	friend Vector operator - (const Vector& vector);
-	friend Vector operator+(const Vector& vector, int scalar);
-	friend Vector operator-(const Vector& vector, int scalar);
-	friend Vector operator*(const Vector& vector, int scalar);
-	friend Vector operator/(const Vector& vector, int scalar);
-	friend Vector operator+(const Vector& vector1, const Vector& vector2);
-	friend Vector operator-(const Vector& vector1, const Vector& vector2);
-	friend Vector operator*(const Vector& vector1, const Vector& vector2);
-	friend Vector operator/(const Vector& vector1, const Vector& vector2);
-	friend int operator+(const Vector& vector1,  Vector& vector2);
+	//friend Vector operator - (const Vector& vector);
+	//friend Vector operator+(const Vector& vector, int scalar);
+	//friend Vector operator-(const Vector& vector, int scalar);
+	//friend Vector operator*(const Vector& vector, int scalar);
+	//friend Vector operator/(const Vector& vector, int scalar);
+	//friend Vector operator+(const Vector& vector1, const Vector& vector2);
+	//friend Vector operator-(const Vector& vector1, const Vector& vector2);
+	//friend Vector operator*(const Vector& vector1, const Vector& vector2);
+	//friend Vector operator/(const Vector& vector1, const Vector& vector2);
+	//friend int operator+(const Vector& vector1,  Vector& vector2);
 
 	void setVectorElement(int index,int data);
 	void setVectorSize(int size);

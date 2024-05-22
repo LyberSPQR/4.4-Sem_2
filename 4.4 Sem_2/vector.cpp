@@ -2,96 +2,96 @@
 #include <iostream>
 #include <time.h>
 
-Vector Vector :: operator + (int scalar)
-{
-	
-	for (int i = 0; i < this->size; i++)
-	{
-		array[i] += scalar;
-	}
-		return *this;
-}
-Vector Vector :: operator - (int scalar)
-{
-
-	for (int i = 0; i < this->size; i++)
-	{
-		array[i] -= scalar;
-	}
-	return *this;
-}
-Vector Vector :: operator * (int scalar)
-{
-
-	for (int i = 0; i < this->size; i++)
-	{
-		array[i] *= scalar;
-	}
-	return *this;
-}
-Vector Vector :: operator / (int scalar)
-{
-
-	for (int i = 0; i < this->size; i++)
-	{
-		array[i] /= scalar;
-	}
-	return *this;
-}
-
-Vector Vector :: operator + ( Vector& vector)
-{
-	for (int i = 0; i < this->size; i++)
-	{
-		array[i] += vector.array[i];
-	}
-	return *this;
-}
-Vector Vector :: operator - ()
-{
-	for (int i = 0; i < this->size; i++)
-	{
-		array[i] *= -1;
-	}
-	return *this;
-}
-Vector Vector :: operator - (const Vector& vector)
-{
-	for (int i = 0; i < this->size; i++)
-	{
-		array[i] -= vector.array[i];
-	}
-	return *this;
-}
-Vector Vector :: operator * (const Vector& vector)
-{
-	for (int i = 0; i < this->size; i++)
-	{
-		array[i] *= vector.array[i];
-	}
-	return *this;
-}
-Vector Vector :: operator / (const Vector& vector)
-{
-	for (int i = 0; i < this->size; i++)
-	{
-		array[i] *= vector.array[i];
-	}
-	return *this;
-}
-int Vector :: operator [] (int index)
-{
-	return this->array[index];
-}
-int Vector :: operator + (const Vector& vector)
-{
-	int sum = 0;
-	for (int i = 0; i < this->size; i++)
-	{
-		sum += array[i] * vector.array[i];
-	}
-	return sum;
-}
+//Vector Vector :: operator + (int scalar)
+//{
+//	
+//	for (int i = 0; i < this->size; i++)
+//	{
+//		array[i] += scalar;
+//	}
+//		return *this;
+//}
+//Vector Vector :: operator - (int scalar)
+//{
+//
+//	for (int i = 0; i < this->size; i++)
+//	{
+//		array[i] -= scalar;
+//	}
+//	return *this;
+//}
+//Vector Vector :: operator * (int scalar)
+//{
+//
+//	for (int i = 0; i < this->size; i++)
+//	{
+//		array[i] *= scalar;
+//	}
+//	return *this;
+//}
+//Vector Vector :: operator / (int scalar)
+//{
+//
+//	for (int i = 0; i < this->size; i++)
+//	{
+//		array[i] /= scalar;
+//	}
+//	return *this;
+//}
+//
+//Vector Vector :: operator + ( Vector& vector)
+//{
+//	for (int i = 0; i < this->size; i++)
+//	{
+//		array[i] += vector.array[i];
+//	}
+//	return *this;
+//}
+//Vector Vector :: operator - ()
+//{
+//	for (int i = 0; i < this->size; i++)
+//	{
+//		array[i] *= -1;
+//	}
+//	return *this;
+//}
+//Vector Vector :: operator - (const Vector& vector)
+//{
+//	for (int i = 0; i < this->size; i++)
+//	{
+//		array[i] -= vector.array[i];
+//	}
+//	return *this;
+//}
+//Vector Vector :: operator * (const Vector& vector)
+//{
+//	for (int i = 0; i < this->size; i++)
+//	{
+//		array[i] *= vector.array[i];
+//	}
+//	return *this;
+//}
+//Vector Vector :: operator / (const Vector& vector)
+//{
+//	for (int i = 0; i < this->size; i++)
+//	{
+//		array[i] *= vector.array[i];
+//	}
+//	return *this;
+//}
+//int Vector :: operator [] (int index)
+//{
+//	return this->array[index];
+//}
+//int Vector :: operator + (const Vector& vector)
+//{
+//	int sum = 0;
+//	for (int i = 0; i < this->size; i++)
+//	{
+//		sum += array[i] * vector.array[i];
+//	}
+//	return sum;
+//}
 
 Vector :: Vector()
 {
@@ -169,22 +169,22 @@ int Vector::getVectorElement(int index)
 	}
 	return this->array[index];
 }
-ostream& Vector :: operator << (ostream& str)
-{
-	for (int i = 0; i < size; i++)
-	{
-		str << array[i] << " ";
-	}
-	return str;
-}
-istream& Vector :: operator >> (istream& str)
-{
-	for (int i = 0; i < size; i++)
-	{
-		cin >> array[i];
-	}
-	return str;
-}
+//ostream& Vector :: operator << (ostream& out)
+//{
+//	for (int i = 0; i < size; i++)
+//	{
+//		out << array[i] << " ";
+//	}
+//	return out;
+//}
+//istream& Vector :: operator >> (istream& in)
+//{
+//	for (int i = 0; i < size; i++)
+//	{
+//		in >> array[i];
+//	}
+//	return in;
+//}
 void Vector:: setVectorElement(int index, int data)
 {
 	if (index > size)
