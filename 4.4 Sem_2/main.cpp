@@ -217,19 +217,19 @@ Vector  operator - (const Vector& vector1)
 	return vector1;
 }
 
-ostream& operator << (ostream& str, Vector& r)
+ostream& operator << (ostream& out, Vector& r)
 {
 	for (int i = 0; i < r.size; i++)
 	{
-		str << r.array[i] << " ";
+		out << r.array[i] << " ";
 	}
-	return str;
+	return out;
 }
-istream& operator >> (istream& str, Vector& r)
+istream& operator >> (istream& in, Vector& r)
 {
 	for (int i = 0; i < r.size; i++)
 	{
-		cin >> r.array[i];
+		in >> r.array[i];
 	}
-	return str;
+	return in;
 }
